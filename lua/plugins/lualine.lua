@@ -3,9 +3,9 @@ require('lualine').setup({
 				theme='catppuccin',
 				disabled_filetypes = { 'packer', 'NvimTree' },
 				icons_enabled = true,
-				component_separators = { left = '', right = ''},
-				section_separators = { left = '', right = ''},
 				ignore_focus = {},
+				component_separators = '|',
+				section_separators = { left = '', right = '' },
 				always_divide_middle = true,
 				globalstatus = false,
 				refresh = {
@@ -15,23 +15,23 @@ require('lualine').setup({
 				}
 			},
 			sections = {
-				lualine_a = {'mode'},
-				lualine_b = {'branch', 'diff', 'diagnostics'},
-				lualine_c = {},
-				lualine_x = {},
-				lualine_y = {'filetype'},
-				lualine_z = {'location'}
-			},
-			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = {'filename'},
-				lualine_x = {'location'},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {'branch'},
+				lualine_z = {'location'},
+			},
+			inactive_sections = {
+				lualine_a = { 'filename' },
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {}
+				lualine_z = { 'location' },
 			},
 			tabline = {},
 			winbar = {},
 			inactive_winbar = {},
-			extensions = {}
+			extensions = {'nvim-tree'}
 })

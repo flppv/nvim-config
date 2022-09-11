@@ -16,6 +16,7 @@ vim.g.transparent_enabled = true
 vim.g.mapleader = " "
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>lg', ':LazyGit<CR>', {})
 
 require('plugins')
 require('plugins/nightfox')
