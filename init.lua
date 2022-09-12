@@ -1,4 +1,5 @@
 local opt = vim.opt
+local g = vim.g
 
 opt.mouse = "a"
 opt.relativenumber = true
@@ -11,15 +12,16 @@ opt.smartcase = true
 opt.ignorecase = true
 opt.smartindent = true
 opt.tabstop = 2
-vim.g.transparent_enabled = true
+opt.cmdheight = 0
 
-vim.g.mapleader = " "
+g.transparent_enabled = true
+g.mapleader = " "
+
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<CR>', {})
 vim.api.nvim_set_keymap('n', '<leader>lg', ':LazyGit<CR>', {})
 
 require('plugins')
-require('plugins/nightfox')
 require('plugins/catppuccin')
 require('plugins/nvim-treesitter')
 require('plugins/lualine')
