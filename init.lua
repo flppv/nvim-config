@@ -7,7 +7,7 @@ opt.number = true
 opt.termguicolors = true
 opt.background = 'dark'
 opt.syntax = "ON"
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 opt.smartcase = true
 opt.ignorecase = true
 opt.smartindent = true
@@ -35,3 +35,5 @@ require('plugins/mason')
 require('plugins/dashboard')
 require('plugins/cmp')
 require('plugins/gitsigns')
+require('plugins/kommentary')
+require('plugins/nvim-autopairs')

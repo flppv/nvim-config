@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/anton/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  kommentary = {
+    loaded = true,
+    path = "/Users/anton/.local/share/nvim/site/pack/packer/start/kommentary",
+    url = "https://github.com/b3nj5m1n/kommentary"
+  },
   ["lazygit.nvim"] = {
     loaded = true,
     path = "/Users/anton/.local/share/nvim/site/pack/packer/start/lazygit.nvim",

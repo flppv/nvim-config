@@ -11,14 +11,15 @@ require("packer").startup(function(use)
 	use { "romgrk/barbar.nvim" }
 	use { "folke/which-key.nvim" }
 	use { "glepnir/dashboard-nvim" }
-
 	use { "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = "nvim-lua/plenary.nvim" }
-	use { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" }
 
-	-- LSP
+	-- CODE
 	use { "neovim/nvim-lspconfig" }
 	use { "williamboman/mason.nvim" }
 	use { "williamboman/mason-lspconfig.nvim" }
+	use { "nvim-treesitter/nvim-treesitter", run=":TSUpdate" }
+	use { "b3nj5m1n/kommentary" }
+	use { "windwp/nvim-autopairs" }
 
 	-- AUTOCOMPLETION
   use { "hrsh7th/cmp-nvim-lsp" }
