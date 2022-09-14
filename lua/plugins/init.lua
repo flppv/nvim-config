@@ -13,6 +13,7 @@ require("packer").startup(function(use)
 	use { "glepnir/dashboard-nvim" }
 	use { "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = "nvim-lua/plenary.nvim" }
 	use { "akinsho/toggleterm.nvim" }
+	use { "phaazon/hop.nvim", branch = "v2" }
 
 	-- CODE
 	use { "neovim/nvim-lspconfig" }
@@ -23,6 +24,7 @@ require("packer").startup(function(use)
 	use { "windwp/nvim-autopairs" }
 	use { "jose-elias-alvarez/null-ls.nvim" }
 	use { "MunifTanjim/prettier.nvim" }
+	use { "lukas-reineke/indent-blankline.nvim"}
 
 	-- AUTOCOMPLETION
   use { "hrsh7th/cmp-nvim-lsp" }

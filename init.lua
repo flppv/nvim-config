@@ -21,11 +21,18 @@ g.transparent_enabled = true
 g.mapleader = " "
 
 key('n', '<leader>e', ':NvimTreeToggle<CR>', {})
-key('n', '<leader>f', ':Telescope find_files<CR>', {})
+key('n', '<leader>ff', ':Telescope find_files<CR>', {})
 key('n', '<leader>lg', ':LazyGit<CR>', {})
-key('n', '<leader>rc', ':source $MYVIMRC<CR>', {})
+key('n', '<leader>rc', ':source $MYVIMRC<CR>:source lua/plugins/init.lua<CR>', {})
 key('n', '<leader>tt', ':ToggleTerm direction=float<CR>', {})
 key('t', '<c-x>', '<cmd>:ToggleTermToggleAll<CR>', {})
+key('n', '<leader>fp', ':Prettier', {})
+
+key('', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+key('', 'S', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+key('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
+key('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
+key('n', 's', ":HopChar2<CR>", {})
 
 require('plugins')
 require('plugins/catppuccin')
@@ -46,3 +53,4 @@ require('plugins/nvim-autopairs')
 require('plugins/null-ls')
 require('plugins/prettier')
 require('plugins/toggleterm')
+require('plugins/hop')

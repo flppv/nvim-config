@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/Users/anton/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["barbar.nvim"] = {
     loaded = true,
     path = "/Users/anton/.local/share/nvim/site/pack/packer/start/barbar.nvim",
@@ -103,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/anton/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/Users/anton/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["dashboard-nvim"] = {
     loaded = true,
@@ -139,6 +149,16 @@ _G.packer_plugins = {
     path = "/Users/anton/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/anton/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/Users/anton/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/anton/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -174,10 +194,20 @@ _G.packer_plugins = {
     path = "/Users/anton/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/Users/anton/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/anton/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/anton/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["which-key.nvim"] = {
     loaded = true,
