@@ -3,6 +3,7 @@ require("packer").startup(function(use)
 
 	-- THEMES
 	use { "catppuccin/nvim", as = "catppuccin" }
+	use { "rebelot/kanagawa.nvim" }
 
 	-- UI
 	use { "nvim-lualine/lualine.nvim" }
