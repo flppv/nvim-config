@@ -4,6 +4,7 @@ require("packer").startup(function(use)
 	-- THEMES
 	use { "catppuccin/nvim", as = "catppuccin" }
 	use { "rebelot/kanagawa.nvim" }
+	use { "ellisonleao/gruvbox.nvim" }
 
 	-- UI
 	use { "nvim-lualine/lualine.nvim" }
@@ -15,6 +16,8 @@ require("packer").startup(function(use)
 	use { "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = "nvim-lua/plenary.nvim" }
 	use { "akinsho/toggleterm.nvim" }
 	use { "phaazon/hop.nvim", branch = "v2" }
+	use { "karb94/neoscroll.nvim"}
+  -- use { "junegunn/limelight.vim" }
 
 	-- CODE
 	use { "neovim/nvim-lspconfig" }
@@ -26,6 +29,8 @@ require("packer").startup(function(use)
 	use { "jose-elias-alvarez/null-ls.nvim" }
 	use { "MunifTanjim/prettier.nvim" }
 	use { "lukas-reineke/indent-blankline.nvim"}
+	use { "windwp/nvim-ts-autotag" }
+  use { "folke/lua-dev.nvim" }
 
 	-- AUTOCOMPLETION
   use { "hrsh7th/cmp-nvim-lsp" }
