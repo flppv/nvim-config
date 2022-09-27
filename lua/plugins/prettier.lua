@@ -1,7 +1,7 @@
 local prettier = require("prettier")
 
 prettier.setup({
-  bin = 'prettier', -- or `'prettierd'` (v0.22+)
+  bin = "prettier", -- or `'prettierd'` (v0.22+)
   filetypes = {
     "css",
     "graphql",
@@ -26,10 +26,11 @@ prettier.setup({
         check_package_json = false,
       })
     end,
-    runtime_condition = function(params)
+    -- runtime_condition = function(params)
+    runtime_condition = function()
       -- return false to skip running prettier
       return true
     end,
     timeout = 5000,
-  }
+  },
 })
