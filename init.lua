@@ -17,15 +17,14 @@ opt.expandtab = true
 opt.cmdheight = 0
 opt.clipboard = "unnamed"
 opt.signcolumn = "yes"
-opt.completeopt = "menu,menuone,noselect"
 opt.cursorline = true
-opt.colorcolumn = "80"
+opt.colorcolumn = "100"
 
 g.transparent_enabled = true
+g.completeopt = "menu,menuone,noselect"
 
 require("plugins")
 require("plugins/catppuccin")
-require("plugins/kanagawa")
 require("plugins/nvim-treesitter")
 require("plugins/lualine")
 require("plugins/which-key")
