@@ -14,7 +14,6 @@ require("packer").startup(function(use)
   use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = "nvim-lua/plenary.nvim" })
   use({ "akinsho/toggleterm.nvim" })
   use({ "phaazon/hop.nvim", branch = "v2" })
-  use({ "karb94/neoscroll.nvim" })
   -- use { "junegunn/limelight.vim" }
 
   -- CODE

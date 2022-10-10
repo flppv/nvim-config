@@ -44,7 +44,6 @@ require("plugins/null-ls")
 require("plugins/prettier")
 require("plugins/toggleterm")
 require("plugins/hop")
-require("plugins/neoscroll")
 require("keymaps")
 
 vim.cmd([[colorscheme catppuccin]])

@@ -1,7 +1,8 @@
 -- Set barbar's options
-require'bufferline'.setup {
+local bufferline_api = require("bufferline.api")
+require("bufferline").setup({
   -- Enable/disable animations
-	animation = true,
+  animation = true,
 
   -- Enable/disable auto-hiding the tab bar when there is a single buffer
   auto_hide = false,
@@ -18,8 +19,8 @@ require'bufferline'.setup {
   clickable = true,
 
   -- Excludes buffers from the tabline
-  exclude_ft = {'javascript'},
-  exclude_name = {'package.json'},
+  exclude_ft = { "javascript" },
+  exclude_name = { "package.json" },
 
   -- Enable/disable icons
   -- if set to 'numbers', will show buffer index in the tabline
@@ -33,11 +34,11 @@ require'bufferline'.setup {
   icon_custom_colors = false,
 
   -- Configure icons on the bufferline.
-  icon_separator_active = '▎',
-  icon_separator_inactive = '▎',
-  icon_close_tab = '',
-  icon_close_tab_modified = '●',
-  icon_pinned = '車',
+  icon_separator_active = "▎",
+  icon_separator_inactive = "▎",
+  icon_close_tab = "",
+  icon_close_tab_modified = "●",
+  icon_pinned = "車",
 
   -- If true, new buffers will be inserted at the start/end of the list.
   -- Default is to insert after current buffer.
@@ -59,27 +60,27 @@ require'bufferline'.setup {
   -- New buffer letters are assigned in this order. This order is
   -- optimal for the qwerty keyboard layout but might need adjustement
   -- for other layouts.
-  letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
+  letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
 
   -- Sets the name of unnamed buffers. By default format is "[Buffer X]"
   -- where X is the buffer number. But only a static string is accepted here.
   no_name_title = nil,
-}
-
-vim.api.nvim_create_autocmd('BufWinEnter', {
-  pattern = '*',
-  callback = function()
-    if vim.bo.filetype == 'NvimTree' then
-      require'bufferline.state'.set_offset(31, 'Files')
-    end
-  end
 })
 
-vim.api.nvim_create_autocmd('BufWinLeave', {
-  pattern = '*',
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = "*",
   callback = function()
-    if vim.fn.expand('<afile>'):match('NvimTree') then
-      require'bufferline.state'.set_offset(0)
+    if vim.bo.filetype == "NvimTree" then
+      bufferline_api.set_offset(31, "Files")
     end
-  end
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufWinLeave", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.expand("<afile>"):match("NvimTree") then
+      bufferline_api.set_offset(0)
+    end
+  end,
 })
