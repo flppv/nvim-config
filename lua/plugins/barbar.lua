@@ -1,5 +1,7 @@
 -- Set barbar's options
+local nvim_tree_events = require("nvim-tree.events")
 local bufferline_api = require("bufferline.api")
+
 require("bufferline").setup({
   -- Enable/disable animations
   animation = true,
@@ -67,20 +69,18 @@ require("bufferline").setup({
   no_name_title = nil,
 })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype == "NvimTree" then
-      bufferline_api.set_offset(31, "Files")
-    end
-  end,
-})
+local function get_tree_size()
+  return require("nvim-tree.view").View.width
+end
 
-vim.api.nvim_create_autocmd("BufWinLeave", {
-  pattern = "*",
-  callback = function()
-    if vim.fn.expand("<afile>"):match("NvimTree") then
-      bufferline_api.set_offset(0)
-    end
-  end,
-})
+nvim_tree_events.subscribe("TreeOpen", function()
+  bufferline_api.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe("Resize", function()
+  bufferline_api.set_offset(get_tree_size())
+end)
+
+nvim_tree_events.subscribe("TreeClose", function()
+  bufferline_api.set_offset(0)
+end)

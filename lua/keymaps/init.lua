@@ -4,7 +4,7 @@ vim.g.mapleader = " "
 
 -- Leader/which-key
 key("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
-key("n", "<leader>n", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
+-- key("n", "<leader>n", ":NvimTreeFocus<CR>", { desc = "Focus NvimTree" })
 key("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Find Files" })
 key("n", "<leader>fo", ":Telescope oldfiles<CR>", { desc = "Old Files" })
 key("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Telescope Livegrep" })
@@ -25,6 +25,8 @@ key("n", "<leader>s", ":PackerSync<cr>", { desc = "Packer Sync" })
 -- Simplification
 key("n", "<c-l>", "<c-w>l", opts)
 key("n", "<c-h>", "<c-w>h", opts)
+key("n", "<c-j>", "<c-w>j", opts)
+key("n", "<c-k>", "<c-w>k", opts)
 key("n", "<c-s>", ":w<cr>", opts)
 
 -- Hop

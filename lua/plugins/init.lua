@@ -3,6 +3,8 @@ require("packer").startup(function(use)
 
   -- THEMES
   use({ "catppuccin/nvim", as = "catppuccin" })
+  use({ "tiagovla/tokyodark.nvim" })
+  use({ "shaunsingh/nord.nvim" })
 
   -- UI
   use({ "nvim-lualine/lualine.nvim" })

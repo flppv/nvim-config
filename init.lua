@@ -18,13 +18,13 @@ opt.cmdheight = 0
 opt.clipboard = "unnamed"
 opt.signcolumn = "yes"
 opt.cursorline = true
-opt.colorcolumn = "100"
+-- opt.colorcolumn = "100"
 
 g.transparent_enabled = true
 g.completeopt = "menu,menuone,noselect"
 
 require("plugins")
-require("plugins/catppuccin")
+require("plugins/nord")
 require("plugins/nvim-treesitter")
 require("plugins/lualine")
 require("plugins/which-key")
@@ -46,4 +46,4 @@ require("plugins/toggleterm")
 require("plugins/hop")
 require("keymaps")
 
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[colorscheme nord]])
