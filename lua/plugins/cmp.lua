@@ -3,6 +3,7 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+local lspconfig = require("lspconfig")
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 
@@ -61,10 +62,14 @@ cmp.setup({
 })
 
 -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local lsp_defaults = {
+  flags = {
+    debounce_text_changes = 150,
+  },
+  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = function(client, bufnr)
+    vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
+  end,
+}
 
--- The following example advertise capabilities to `clangd`.
-require("lspconfig").clangd.setup({
-  capabilities = capabilities,
-})
+lspconfig.util.default_config = vim.tbl_deep_extend("force", lspconfig.util.default_config, lsp_defaults)
