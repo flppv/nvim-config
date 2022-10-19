@@ -29,7 +29,7 @@ require("packer").startup(function(use)
   use({ "MunifTanjim/prettier.nvim" })
   use({ "lukas-reineke/indent-blankline.nvim" })
   use({ "windwp/nvim-ts-autotag" })
-  use({ "folke/lua-dev.nvim" })
+  use({ "folke/neodev.nvim" })
 
   -- AUTOCOMPLETION
   use({ "hrsh7th/cmp-nvim-lsp" })
