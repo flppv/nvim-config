@@ -1,6 +1,6 @@
 require("lualine").setup({
   options = {
-    theme = "nord",
+    theme = "onedark",
     disabled_filetypes = { "packer", "NvimTree" },
     icons_enabled = true,
     ignore_focus = {},
@@ -17,17 +17,17 @@ require("lualine").setup({
   sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = { "branch" },
-    lualine_z = { "location" },
+    lualine_c = { "branch", "diff", "diagnostics" },
+    lualine_x = { "location" },
+    lualine_y = {},
+    lualine_z = {},
   },
   inactive_sections = {
-    lualine_a = { "filename" },
+    lualine_a = {},
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = {},
+    lualine_y = { "filename" },
     lualine_z = { "location" },
   },
   tabline = {},

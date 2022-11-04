@@ -47,4 +47,4 @@ vim.opt.signcolumn = "yes"
 g.transparent_enabled = true
 g.completeopt = "menu,menuone,noselect"
 
-vim.cmd("colorscheme nord")
+vim.cmd("colorscheme onedark")

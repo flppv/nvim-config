@@ -1,7 +1,7 @@
 require("onedark").setup({
   style = "deep",
   transparent = true,
-  term_colors = false,
+  term_colors = true,
   code_style = {
     comments = "italic",
     strings = "italic",
