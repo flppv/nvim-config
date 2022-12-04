@@ -67,3 +67,6 @@ key("n", "<C-]>", "<Cmd>BufferNext<CR>", opts)
 
 key("n", "<leader>c", "<Cmd>BufferClose<CR>", opts)
 key("n", "<leader>p", "<Cmd>BufferPick<CR>", opts)
+
+key("n", "<C-d>", "<C-d>zz", opts)
+key("n", "<C-u>", "<C-u>zz", opts)
