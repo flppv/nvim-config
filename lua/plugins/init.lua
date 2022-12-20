@@ -51,6 +51,7 @@ require("packer").startup(function(use)
   use({ "hrsh7th/nvim-cmp" })
   use({ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" })
   use({ "saadparwaiz1/cmp_luasnip" })
+  use({ "rafamadriz/friendly-snippets" })
 
   -- GIT
   use({ "lewis6991/gitsigns.nvim" })

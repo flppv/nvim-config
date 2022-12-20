@@ -10,9 +10,15 @@ local cmp = require("cmp")
 
 cmp.setup({
   sources = {
-    { name = "nvim_lsp", keyword_length = 3 },
+    {
+      name = "nvim_lsp",
+      keyword_length = 3,
+      entry_filter = function(entry, ctx)
+        return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
+      end,
+    },
     { name = "luasnip", keyword_length = 3 },
-    { name = "buffer", keyword_length = 3 },
+    { name = "buffer", keyword_length = 4 },
     { name = "path", keyword_length = 3 },
     -- { name = "cmdline" },
   },

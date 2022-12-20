@@ -40,14 +40,18 @@ local on_attach = function(client, bufnr)
 end
 
 local lsp_flags = {
-  -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
 lspconfig["tsserver"].setup({
   on_attach = on_attach,
   flags = lsp_flags,
 })
-lspconfig["svelte"].setup({})
+
+lspconfig["svelte"].setup({
+  on_attach = on_attach,
+  flags = lsp_flags,
+})
+
 lspconfig.sumneko_lua.setup({
   settings = {
     Lua = {
