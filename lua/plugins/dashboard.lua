@@ -22,5 +22,4 @@ db.custom_header = {
 db.custom_center = {
   { icon = " ", desc = "Find File                 SPC f f", action = "Telescope find_files" },
   { icon = " ", desc = "Recents                   SPC f o", action = "Telescope oldfiles" },
-  { icon = " ", desc = "Load Last Session         SPC l  ", action = "SessionLoad" },
 }
