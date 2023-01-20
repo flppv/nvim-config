@@ -1,26 +1,16 @@
-require("plugins")
-require("plugins/nvim-treesitter")
-require("plugins/lualine")
-require("plugins/which-key")
-require("plugins/telescope")
-require("plugins/lsp")
-require("plugins/nvim-tree")
-require("plugins/barbar")
-require("plugins/neodev")
-require("plugins/nvim-lspconfig")
-require("plugins/mason")
-require("plugins/dashboard")
-require("plugins/cmp")
-require("plugins/gitsigns")
-require("plugins/comment")
-require("plugins/nvim-autopairs")
-require("plugins/null-ls")
-require("plugins/prettier")
-require("plugins/toggleterm")
-require("plugins/hop")
-require("plugins/nord")
-require("plugins/onedark")
-require("plugins/tokyodark")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 require("keymaps")
 
 local g = vim.g
@@ -47,4 +37,34 @@ vim.opt.signcolumn = "yes"
 g.transparent_enabled = true
 g.completeopt = "menu,menuone,noselect"
 
-vim.cmd("colorscheme onedark")
+-- vim.cmd("colorscheme onedark")
+
+require("lazy").setup("plugins", {
+  defaults = {
+    lazy = false,
+  },
+  install = {
+    colorscheme = { "onedark" },
+    missing = false,
+  },
+  checker = {
+    enabled = true,
+  },
+  change_detection = {
+    notify = false,
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
+})

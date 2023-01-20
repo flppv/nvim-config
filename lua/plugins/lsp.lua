@@ -1,17 +1,27 @@
-local signs = {
-  Error = " ",
-  Warn = " ",
-  Hint = " ",
-  Info = " ",
+local M = {
+    config = function()
+        local signs = {
+            Error = " ",
+            Warn = " ",
+            Hint = " ",
+            Info = " "
+        }
+
+        for type, icon in pairs(signs) do
+            local hl = "DiagnosticSign" .. type
+            vim.fn.sign_define(hl, {
+                text = icon,
+                texthl = hl,
+                numhl = hl
+            })
+        end
+
+        local config = {
+            virtual_text = false
+        }
+
+        vim.diagnostic.config(config)
+    end
 }
 
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
-local config = {
-  virtual_text = false,
-}
-
-vim.diagnostic.config(config)
+return M

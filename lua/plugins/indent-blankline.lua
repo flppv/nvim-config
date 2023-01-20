@@ -1,1 +1,0 @@
-require('indent-blankline').setup()
