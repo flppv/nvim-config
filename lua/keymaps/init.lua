@@ -20,8 +20,8 @@ key("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "Toggle Trouble" })
 key("t", "<c-x>", "<cmd>:ToggleTermToggleAll<CR>", {})
 -- key("n", "<leader>j", ":Prettier<CR>:w<CR>", { desc = "Format with Prettier & Save file" })
 key("n", "<leader>h", ":nohlsearch<CR>", { desc = "Remove highlight" })
-key("n", "<leader>i", ":PackerInstall<cr>", { desc = "Packer Install" })
-key("n", "<leader>s", ":PackerSync<cr>", { desc = "Packer Sync" })
+key("n", "<leader>s", '<cmd>lua require("persistence").load()<CR>', { desc = "Load Last Session" })
+key("n", "<leader>z", ":Lazy<CR>", { desc = "Open Lazy" })
 
 -- Simplification
 key("n", "<c-l>", "<c-w>l", opts)
