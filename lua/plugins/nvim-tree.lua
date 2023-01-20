@@ -1,6 +1,6 @@
 local M = {
   "kyazdani42/nvim-tree.lua",
-  config = function ()
+  config = function()
     local lib = require("nvim-tree.lib")
     local view = require("nvim-tree.view")
 
@@ -43,32 +43,37 @@ local M = {
       view.focus()
     end
 
-    require('nvim-tree').setup({
+    require("nvim-tree").setup({
       disable_netrw = true,
       diagnostics = {
-        enable = true
+        enable = true,
       },
       view = {
         mappings = {
           custom_only = false,
-          list = {{
-            key = "l",
-            action = "edit",
-            action_cb = edit_or_open
-          }, {
-            key = "L",
-            action = "vsplit_preview",
-            action_cb = vsplit_preview
-          }, {
-            key = "h",
-            action = "close_node"
-          }, {
-            key = "H",
-            action = "collapse_all",
-            action_cb = collapse_all
-          }}
-        }
-      }
+          list = {
+            {
+              key = "l",
+              action = "edit",
+              action_cb = edit_or_open,
+            },
+            {
+              key = "L",
+              action = "vsplit_preview",
+              action_cb = vsplit_preview,
+            },
+            {
+              key = "h",
+              action = "close_node",
+            },
+            {
+              key = "H",
+              action = "collapse_all",
+              action_cb = collapse_all,
+            },
+          },
+        },
+      },
     })
 
     local api = require("nvim-tree.api")

@@ -10,7 +10,7 @@ local M = {
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
     local opts = {
       noremap = true,
-      silent = true
+      silent = true,
     }
     -- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
     vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
@@ -28,7 +28,7 @@ local M = {
       local bufopts = {
         noremap = true,
         silent = true,
-        buffer = bufnr
+        buffer = bufnr,
       }
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -46,20 +46,20 @@ local M = {
       vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
       vim.keymap.set("n", "<space>ft", function()
         vim.lsp.buf.format({
-          async = true
+          async = true,
         })
       end, bufopts)
     end
 
     local lsp_flags = {
-      debounce_text_changes = 150
+      debounce_text_changes = 150,
     }
 
     local signs = {
       Error = " ",
       Warn = " ",
       Hint = " ",
-      Info = " "
+      Info = " ",
     }
 
     for type, icon in pairs(signs) do
@@ -67,24 +67,24 @@ local M = {
       vim.fn.sign_define(hl, {
         text = icon,
         texthl = hl,
-        numhl = hl
+        numhl = hl,
       })
     end
 
     local config = {
-      virtual_text = false
+      virtual_text = false,
     }
 
     vim.diagnostic.config(config)
 
     lspconfig["tsserver"].setup({
       on_attach = on_attach,
-      flags = lsp_flags
+      flags = lsp_flags,
     })
 
     lspconfig["svelte"].setup({
       on_attach = on_attach,
-      flags = lsp_flags
+      flags = lsp_flags,
     })
 
     lspconfig.sumneko_lua.setup({
@@ -92,37 +92,38 @@ local M = {
         Lua = {
           runtime = {
             -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = "LuaJIT"
+            version = "LuaJIT",
           },
           diagnostics = {
             -- Get the language server to recognize the `vim` global
-            globals = {"vim"}
+            globals = { "vim" },
+            checkThirdParty = false,
           },
           workspace = {
             -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true)
+            library = vim.api.nvim_get_runtime_file("", true),
           },
           -- Do not send telemetry data containing a randomized but unique identifier
           telemetry = {
-            enable = false
-          }
-        }
-      }
+            enable = false,
+          },
+        },
+      },
     })
 
     lspconfig.emmet_ls.setup({
       -- on_attach = on_attach,
       capabilities = capabilities,
-      filetypes = {"html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less"},
+      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
       init_options = {
         html = {
           options = {
             -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-            ["bem.enabled"] = true
-          }
-        }
-      }
+            ["bem.enabled"] = true,
+          },
+        },
+      },
     })
-  end
+  end,
 }
 return M
