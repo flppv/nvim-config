@@ -7,6 +7,7 @@ local M = {
 		"hrsh7th/cmp-cmdline",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
+		"onsails/lspkind.nvim",
 	},
 	event = "VeryLazy",
 	config = function()
@@ -17,6 +18,7 @@ local M = {
 
 		require("luasnip.loaders.from_vscode").lazy_load()
 		local lspconfig = require("lspconfig")
+		local lspkind = require("lspkind")
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
 
@@ -24,7 +26,7 @@ local M = {
 			sources = {
 				{
 					name = "nvim_lsp",
-					keyword_length = 3,
+					keyword_length = 2,
 					entry_filter = function(entry, ctx)
 						return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
 					end,
@@ -35,7 +37,7 @@ local M = {
 				},
 				{
 					name = "buffer",
-					keyword_length = 4,
+					keyword_length = 3,
 				},
 				{
 					name = "path",
@@ -52,21 +54,14 @@ local M = {
 				end,
 			},
 			formatting = {
-				fields = { "menu", "abbr", "kind" },
-				format = function(entry, item)
-					local menu_icon = {
-						nvim_lsp = "λ",
-						luasnip = "⋗",
-						buffer = "Ω",
-						path = "🖫",
-					}
-
-					item.menu = menu_icon[entry.source.name]
-					return item
-				end,
+				format = lspkind.cmp_format({
+					mode = "symbol", -- show only symbol annotations
+					maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+				}),
 			},
 			window = {
-				-- completion = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
 			},
 			mapping = {

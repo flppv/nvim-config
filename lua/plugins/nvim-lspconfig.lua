@@ -73,7 +73,7 @@ local M = {
 		end
 
 		local config = {
-			virtual_text = false,
+			virtual_text = true,
 		}
 
 		vim.diagnostic.config(config)

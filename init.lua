@@ -48,7 +48,7 @@ require("lazy").setup("plugins", {
 		missing = false,
 	},
 	checker = {
-		enabled = true,
+		enabled = false,
 	},
 	change_detection = {
 		notify = false,

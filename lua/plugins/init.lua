@@ -36,13 +36,6 @@ return {
 			require("neodev").setup()
 		end,
 	},
-	{
-		"folke/trouble.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("trouble").setup()
-		end,
-	},
 	{ "kdheepak/lazygit.nvim", event = "VeryLazy" },
 
 	{ "L3MON4D3/LuaSnip", event = "VeryLazy" },
