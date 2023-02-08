@@ -61,7 +61,7 @@ key("n", "s", ":HopChar2<CR>", {})
 key("n", "<C-[>", "<Cmd>BufferPrevious<CR>", opts)
 key("n", "<C-]>", "<Cmd>BufferNext<CR>", opts)
 
-key("n", "<leader>c", "<Cmd>BufferClose<CR>", opts)
+key("n", "<leader>x", "<Cmd>BufferClose<CR>", opts)
 key("n", "<leader>p", "<Cmd>BufferPick<CR>", opts)
 
 key("n", "<C-d>", "<C-d>zz", opts)
