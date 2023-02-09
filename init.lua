@@ -12,6 +12,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("keymaps")
+require("keymaps/lsp")
+require("keymaps/telescope")
 
 local g = vim.g
 
