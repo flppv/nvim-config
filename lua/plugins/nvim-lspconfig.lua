@@ -74,7 +74,7 @@ local M = {
 			flags = lsp_flags,
 		})
 
-		lspconfig.sumneko_lua.setup({
+		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
 					runtime = {
