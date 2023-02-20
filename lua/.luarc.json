@@ -1,0 +1,22 @@
+{
+    "workspace.library": [
+        "/Users/anton/.config/nvim",
+        "/Users/anton/.local/share/nvim/lazy/lazy.nvim",
+        "/Users/anton/.local/share/nvim/lazy/nvim-lspconfig",
+        "/Users/anton/.local/share/nvim/lazy/neodev.nvim",
+        "/Users/anton/.local/share/nvim/lazy/copilot.lua",
+        "/Users/anton/.local/share/nvim/lazy/nvim-web-devicons",
+        "/Users/anton/.local/share/nvim/lazy/lualine.nvim",
+        "/Users/anton/.local/share/nvim/lazy/trouble.nvim",
+        "/Users/anton/.local/share/nvim/lazy/gitsigns.nvim",
+        "/Users/anton/.local/share/nvim/lazy/nvim-treesitter",
+        "/Users/anton/.local/share/nvim/lazy/indent-blankline.nvim",
+        "/Users/anton/.local/share/nvim/lazy/plenary.nvim",
+        "/Users/anton/.local/share/nvim/lazy/telescope.nvim",
+        "/Users/anton/.local/share/nvim/lazy/neovim-ayu",
+        "/opt/homebrew/Cellar/neovim/HEAD-06d1e86/share/nvim/runtime",
+        "/Users/anton/.local/state/nvim/lazy/readme",
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library"
+    ]
+}
