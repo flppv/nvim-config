@@ -1,6 +1,14 @@
 return {
 	{ "kyazdani42/nvim-web-devicons", event = "VeryLazy" },
 	{
+		"echasnovski/mini.nvim",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("mini.cursorword").setup({ delay = 0 })
+		end,
+	},
+	{
 		"akinsho/toggleterm.nvim",
 		event = "VeryLazy",
 		config = function()
