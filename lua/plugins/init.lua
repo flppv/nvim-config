@@ -32,9 +32,7 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
-		config = function()
-			require("indent_blankline").setup()
-		end,
+		main = "ibl",
 	},
 	{ "windwp/nvim-ts-autotag", event = "VeryLazy" },
 	{
