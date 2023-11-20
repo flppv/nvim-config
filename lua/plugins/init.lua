@@ -6,27 +6,8 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("mini.cursorword").setup({ delay = 0 })
-		end,
-	},
-	{
-		"akinsho/toggleterm.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("toggleterm").setup()
-		end,
-	},
-	{
-		"numToStr/Comment.nvim",
-		event = "VeryLazy",
-		config = function()
-			require("Comment").setup()
-		end,
-	},
-	{
-		"windwp/nvim-autopairs",
-		event = "VeryLazy",
-		config = function()
-			require("nvim-autopairs").setup()
+			require("mini.pairs").setup()
+			require("mini.comment").setup()
 		end,
 	},
 	{
@@ -42,7 +23,5 @@ return {
 			require("neodev").setup()
 		end,
 	},
-	{ "kdheepak/lazygit.nvim", event = "VeryLazy" },
-
 	{ "L3MON4D3/LuaSnip", event = "VeryLazy" },
 }
