@@ -7,11 +7,14 @@ local M = {
 				suggestion = {
 					enabled = true,
 					auto_trigger = true,
+					debounce = 20,
 					keymap = {
 						accept = "<C-i>",
 					},
 				},
-				panel = { enabled = true },
+				panel = {
+					enabled = false,
+				},
 				filetypes = {
 					lua = true,
 					javascript = true,
