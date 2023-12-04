@@ -1,6 +1,9 @@
 local M = {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
+	dependencies = {
+		"arkav/lualine-lsp-progress",
+	},
 	opts = {
 		options = {
 			theme = "ayu_mirage",
@@ -24,7 +27,7 @@ local M = {
 			lualine_a = { "mode" },
 			lualine_b = { "filename" },
 			lualine_c = { "branch", "diff", "diagnostics" },
-			lualine_x = { "location" },
+			lualine_x = { "lsp-progress", "location" },
 			lualine_y = {},
 			lualine_z = {},
 		},

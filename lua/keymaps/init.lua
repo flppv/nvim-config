@@ -3,11 +3,9 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 
 -- Leader/which-key
-key("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
+key("n", "<leader>e", ":Oil<CR>", { desc = "Toggle Oil" })
 key("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "Toggle Trouble" })
--- key("n", "<leader>j", ":Prettier<CR>:w<CR>", { desc = "Format with Prettier & Save file" })
 key("n", "<leader>h", ":nohlsearch<CR>", { desc = "Remove highlight" })
-key("n", "<leader>s", '<cmd>lua require("persistence").load()<CR>', { desc = "Load Last Session" })
 key("n", "<leader>z", ":Lazy<CR>", { desc = "Open Lazy" })
 
 -- Simplification
