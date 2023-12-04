@@ -7,8 +7,6 @@ local M = {
 		-- local configs = require('lspconfig/configs')
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities.textDocument.completion.completionItem.snippetSupport = true
-		-- Mappings.
-		-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 		local opts = {
 			noremap = true,
 			silent = true,
@@ -97,6 +95,26 @@ local M = {
 					},
 				},
 			},
+		})
+
+		lspconfig.biome.setup({
+			cmd = { "biome", "lsp" },
+			filetypes = { "lua" },
+			on_attach = function(client, bufnr)
+				-- Enable completion triggered by <c-x><c-o>
+				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+				local bufopts = {
+					noremap = true,
+					silent = true,
+					buffer = bufnr,
+				}
+				vim.keymap.set("n", "<leader>ft", function()
+					vim.lsp.buf.format({
+						async = true,
+					})
+				end, bufopts)
+			end,
 		})
 
 		lspconfig.emmet_ls.setup({

@@ -16,7 +16,7 @@ local M = {
 				completion.luasnip,
 				formatting.shfmt,
 				formatting.stylua,
-				formatting.prettier,
+				formatting.biome,
 				formatting.clang_format,
 				formatting.taplo,
 				formatting.black,
