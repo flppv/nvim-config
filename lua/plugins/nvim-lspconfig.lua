@@ -62,6 +62,8 @@ local M = {
 
 		vim.diagnostic.config(config)
 
+		lspconfig["biome"].setup({})
+
 		lspconfig["tsserver"].setup({
 			on_attach = on_attach,
 			flags = lsp_flags,
@@ -95,26 +97,6 @@ local M = {
 					},
 				},
 			},
-		})
-
-		lspconfig.biome.setup({
-			cmd = { "biome", "lsp" },
-			filetypes = { "lua" },
-			on_attach = function(client, bufnr)
-				-- Enable completion triggered by <c-x><c-o>
-				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-				local bufopts = {
-					noremap = true,
-					silent = true,
-					buffer = bufnr,
-				}
-				vim.keymap.set("n", "<leader>ft", function()
-					vim.lsp.buf.format({
-						async = true,
-					})
-				end, bufopts)
-			end,
 		})
 
 		lspconfig.emmet_ls.setup({
