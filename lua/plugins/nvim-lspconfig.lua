@@ -64,14 +64,25 @@ local M = {
 
 		lspconfig["biome"].setup({})
 
-		lspconfig["tsserver"].setup({
-			on_attach = on_attach,
-			flags = lsp_flags,
-		})
+		-- lspconfig["tsserver"].setup({
+		-- 	on_attach = on_attach,
+		-- 	flags = lsp_flags,
+		-- })
 
 		lspconfig["svelte"].setup({
 			on_attach = on_attach,
 			flags = lsp_flags,
+		})
+
+		require("typescript-tools").setup({
+			settings = {
+				tsserver_plugins = {
+					-- for TypeScript v4.9+
+					"@styled/typescript-styled-plugin",
+					-- or for older TypeScript versions
+					-- "typescript-styled-plugin",
+				},
+			},
 		})
 
 		lspconfig.lua_ls.setup({
