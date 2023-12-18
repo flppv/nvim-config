@@ -19,3 +19,6 @@ key("n", "<c-s>", ":w<cr>", opts)
 
 key("n", "<C-d>", "<C-d>zz", opts)
 key("n", "<C-u>", "<C-u>zz", opts)
+
+key("i", "<c-i>", "copilot#Accept('<cr>')", { expr = true, replace_keycodes = false })
+vim.g.copilot_no_tab_map = true
