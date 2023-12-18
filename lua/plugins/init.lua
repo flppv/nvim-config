@@ -1,9 +1,9 @@
 return {
 	{ "kyazdani42/nvim-web-devicons", event = "VeryLazy" },
-	{
-		"github/copilot.vim",
-		event = "VeryLazy",
-	},
+	-- {
+	-- 	"github/copilot.vim",
+	-- 	event = "VeryLazy",
+	-- },
 	{
 		"echasnovski/mini.nvim",
 		version = "*",
@@ -46,6 +46,10 @@ return {
 			require("oil").setup({})
 			vim.keymap.set("n", "<leader>q", require("oil").open_float, { noremap = true, silent = true })
 		end,
+	},
+	{
+		"Exafunction/codeium.vim",
+		event = "BufEnter",
 	},
 	{
 		"pmizio/typescript-tools.nvim",

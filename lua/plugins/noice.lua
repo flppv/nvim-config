@@ -5,26 +5,21 @@ local M = {
 		require("noice").setup({
 			-- add any options here
 			enabled = true,
+			cmdline = {
+				enabled = true, -- enables the Noice cmdline UI
+				view = "cmdline",
+			},
 			messages = {
 				enabled = true, -- enables the Noice messages UI
 				view = "mini", -- default view for messages
 				view_error = "mini", -- view for errors
 				view_warn = "mini", -- view for warnings
-				view_history = "messages", -- view for :messages
+				view_history = "mini", -- view for :messages
 				view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
 			},
 			presets = {
 				bottom_search = true, -- use a classic bottom cmdline for search
-				command_palette = true, -- position the cmdline and popupmenu together
-			},
-			routes = {
-				{
-					filter = {
-						event = "msg_show",
-						kind = "",
-					},
-					opts = { skip = true },
-				},
+				command_palette = false, -- position the cmdline and popupmenu together
 			},
 			lsp = {
 				progress = {
