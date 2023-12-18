@@ -27,7 +27,7 @@ local M = {
 			lualine_a = { "mode" },
 			lualine_b = { "filename" },
 			lualine_c = { "branch", "diff", "diagnostics" },
-			lualine_x = { "lsp-progress", "location" },
+			lualine_x = { "lsp_progress", "location" },
 			lualine_y = {},
 			lualine_z = {},
 		},
@@ -42,7 +42,7 @@ local M = {
 		tabline = {},
 		winbar = {},
 		inactive_winbar = {},
-		extensions = { "nvim-tree" },
+		extensions = {},
 	},
 }
 

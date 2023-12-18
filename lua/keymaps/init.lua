@@ -22,3 +22,11 @@ key("n", "<C-u>", "<C-u>zz", opts)
 
 key("i", "<c-i>", "copilot#Accept('<cr>')", { expr = true, replace_keycodes = false })
 vim.g.copilot_no_tab_map = true
+
+vim.keymap.set("n", "<leader>nl", function()
+	require("noice").cmd("last")
+end)
+
+vim.keymap.set("n", "<leader>nh", function()
+	require("noice").cmd("history")
+end)
