@@ -62,7 +62,13 @@ local M = {
 
 		vim.diagnostic.config(config)
 
-		lspconfig["biome"].setup({})
+		-- lspconfig["biome"].setup({})
+
+		require("lsp-format").setup({})
+
+		lspconfig["astro"].setup({
+			on_attach = require("lsp-format").on_attach,
+		})
 
 		-- lspconfig["tsserver"].setup({
 		-- 	on_attach = on_attach,
@@ -113,7 +119,7 @@ local M = {
 		lspconfig.emmet_ls.setup({
 			-- on_attach = on_attach,
 			capabilities = capabilities,
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+			filetypes = { "html", "astro", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
 			init_options = {
 				html = {
 					options = {
