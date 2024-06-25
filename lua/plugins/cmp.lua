@@ -2,15 +2,13 @@ local M = {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
 
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind.nvim",
 	},
 	event = "VeryLazy",
+	build = "make install_jsregexp",
 	config = function()
 		local has_words_before = function()
 			local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -36,14 +34,14 @@ local M = {
 					name = "luasnip",
 					keyword_length = 3,
 				},
-				{
-					name = "buffer",
-					keyword_length = 3,
-				},
-				{
-					name = "path",
-					keyword_length = 3,
-				}, -- { name = "cmdline" },
+				-- {
+				-- 	name = "buffer",
+				-- 	keyword_length = 3,
+				-- },
+				-- {
+				-- 	name = "path",
+				-- 	keyword_length = 3,
+				-- }, -- { name = "cmdline" },
 			},
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine

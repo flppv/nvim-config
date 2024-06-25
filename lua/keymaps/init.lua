@@ -1,47 +1,65 @@
-local key = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+local map = vim.keymap.set
+local opts_silent = { noremap = true, silent = true }
+local opts_expr = { expr = true, silent = true }
+
 vim.g.mapleader = " "
 
--- Leader/which-key
-key("n", "<leader>e", ":Oil<CR>", { desc = "Toggle Oil" })
--- open oil float window
+-- Normal mode mappings (built-in functionality)
+local function set_normal_maps()
+  -- Window navigation
+  map("n", "<c-h>", "<c-w>h", opts_silent)
+  map("n", "<c-j>", "<c-w>j", opts_silent)
+  map("n", "<c-k>", "<c-w>k", opts_silent)
+  map("n", "<c-l>", "<c-w>l", opts_silent)
 
-key("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "Toggle Trouble" })
-key("n", "<leader>h", ":nohlsearch<CR>", { desc = "Remove highlight" })
-key("n", "<leader>z", ":Lazy<CR>", { desc = "Open Lazy" })
-key("n", "<leader>x", ":LspInfo<CR>", { desc = "Lsp Info" })
+  -- Scrolling
+  map("n", "<C-d>", "<C-d>zz", opts_silent)
+  map("n", "<C-u>", "<C-u>zz", opts_silent)
 
--- Simplification
-key("n", "<c-l>", "<c-w>l", opts)
-key("n", "<c-h>", "<c-w>h", opts)
-key("n", "<c-j>", "<c-w>j", opts)
-key("n", "<c-k>", "<c-w>k", opts)
-key("n", "<c-s>", ":w<cr>", opts)
+  -- File operations
+  map("n", "<c-s>", ":w<cr>", opts_silent)
+end
 
-key("n", "<C-d>", "<C-d>zz", opts)
-key("n", "<C-u>", "<C-u>zz", opts)
+-- Non-leader key mapping for Oil command
+map("n", "m", ":Oil<CR>", opts_silent)
 
--- key("i", "<c-i>", "copilot#Accept('<cr>')", { expr = true, replace_keycodes = false })
+-- Leader mappings (mostly plugin-related)
+local function set_leader_maps()
+  -- Trouble
+  map("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "Toggle Trouble" })
 
-vim.keymap.set("i", "<C-i>", function()
-	return vim.fn["codeium#Accept"]()
-end, { expr = true, silent = true })
-vim.keymap.set("i", "<c-;>", function()
-	return vim.fn["codeium#CycleCompletions"](1)
-end, { expr = true })
-vim.keymap.set("i", "<c-,>", function()
-	return vim.fn["codeium#CycleCompletions"](-1)
-end, { expr = true })
-vim.keymap.set("i", "<c-x>", function()
-	return vim.fn["codeium#Clear"]()
-end, { expr = true })
+  -- Lazy
+  map("n", "<leader>z", ":Lazy<CR>", { desc = "Open Lazy" })
 
--- vim.g.copilot_no_tab_map = true
+  -- LSP
+  map("n", "<leader>x", ":LspInfo<CR>", { desc = "Lsp Info" })
 
-vim.keymap.set("n", "<leader>nl", function()
-	require("noice").cmd("last")
-end)
+  -- Noice
+  map("n", "<leader>nl", ":NoiceLast<CR>", { desc = "Noice Last Message" })
+  map("n", "<leader>nh", ":NoiceHistory<CR>", { desc = "Noice History" })
 
-vim.keymap.set("n", "<leader>nh", function()
-	require("noice").cmd("history")
-end)
+  -- Misc
+  map("n", "<leader>h", ":nohlsearch<CR>", { desc = "Remove highlight" })
+end
+
+-- Other plugin-specific mappings (non-leader)
+local function set_other_plugin_maps()
+  -- Codeium
+  map("i", "<C-i>", function()
+    return vim.fn["codeium#Accept"]()
+  end, opts_expr)
+  map("i", "<c-;>", function()
+    return vim.fn["codeium#CycleCompletions"](1)
+  end, opts_expr)
+  map("i", "<c-,>", function()
+    return vim.fn["codeium#CycleCompletions"](-1)
+  end, opts_expr)
+  map("i", "<c-x>", function()
+    return vim.fn["codeium#Clear"]()
+  end, opts_expr)
+end
+
+-- Set all mappings
+set_normal_maps()
+set_leader_maps()
+set_other_plugin_maps()

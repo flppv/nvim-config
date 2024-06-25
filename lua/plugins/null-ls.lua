@@ -14,12 +14,14 @@ local M = {
 			debug = true,
 			sources = {
 				completion.luasnip,
+
+				formatting.shfmt,
 				formatting.shfmt,
 				formatting.stylua,
 				-- formatting.biome,
 				formatting.prettier,
 				formatting.clang_format,
-				formatting.taplo,
+				-- formatting.taplo,
 				formatting.black,
 				formatting.fish_indent,
 				diagnostics.fish,
