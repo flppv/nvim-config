@@ -5,7 +5,7 @@
   "codeium.vim": { "branch": "main", "commit": "7a01ffb1e6538fe634f294908a50a7b680039284" },
   "flash.nvim": { "branch": "main", "commit": "43f67935d388fbb540f8b40e8cbfd80de54f978a" },
   "gitsigns.nvim": { "branch": "main", "commit": "fa42613096ebfa5fee1ea87d70f8625ab9685d01" },
-  "lazy.nvim": { "branch": "main", "commit": "2ca68f9979dca1a9911b0f7397550a06854ebb27" },
+  "lazy.nvim": { "branch": "main", "commit": "aff7ee8e8983947abab94a37aa3eec57f6fc3f6b" },
   "lsp-format.nvim": { "branch": "master", "commit": "3612642b0e2eb85015838df5dcfbacb61f15db98" },
   "lspkind.nvim": { "branch": "master", "commit": "1735dd5a5054c1fb7feaf8e8658dbab925f4f0cf" },
   "lspsaga.nvim": { "branch": "main", "commit": "6f920cfabddb9b7de5a3a4d0b7cd4f0774ae23e2" },
