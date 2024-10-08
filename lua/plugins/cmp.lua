@@ -7,6 +7,7 @@ local M = {
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind.nvim",
 	},
+	enabled = false,
 	event = "VeryLazy",
 	build = "make install_jsregexp",
 	config = function()
@@ -34,14 +35,14 @@ local M = {
 					name = "luasnip",
 					keyword_length = 3,
 				},
-				-- {
-				-- 	name = "buffer",
-				-- 	keyword_length = 3,
-				-- },
-				-- {
-				-- 	name = "path",
-				-- 	keyword_length = 3,
-				-- }, -- { name = "cmdline" },
+				{
+					name = "buffer",
+					keyword_length = 3,
+				},
+				{
+					name = "path",
+					keyword_length = 3,
+				}, -- { name = "cmdline" },
 			},
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine

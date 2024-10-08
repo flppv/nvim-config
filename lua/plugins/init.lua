@@ -16,22 +16,15 @@ return {
   },
   {
     "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
+      require("nvim-surround").setup()
     end,
   },
   {
     "stevearc/oil.nvim",
     opts = {},
     event = "VeryLazy",
-    config = function()
-      require("oil").setup({})
-      vim.keymap.set("n", "<leader>q", require("oil").open_float, { noremap = true, silent = true })
-    end,
   },
   {
     "Exafunction/codeium.vim",
@@ -43,5 +36,34 @@ return {
   },
   {
     "lukas-reineke/lsp-format.nvim",
+  },
+  {
+    "saghen/blink.cmp",
+    lazy = false, -- lazy loading handled internally
+    -- optional: provides snippets for the snippet source
+    dependencies = "rafamadriz/friendly-snippets",
+
+    -- use a release tag to download pre-built binaries
+    version = "v0.*",
+    -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+    -- build = 'cargo build --release',
+
+    opts = {
+      highlight = {
+        -- sets the fallback highlight groups to nvim-cmp's highlight groups
+        -- useful for when your theme doesn't support blink.cmp
+        -- will be removed in a future release, assuming themes add support
+        use_nvim_cmp_as_default = true,
+      },
+      -- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+      -- adjusts spacing to ensure icons are aligned
+      nerd_font_variant = "normal",
+
+      -- experimental auto-brackets support
+      -- accept = { auto_brackets = { enabled = true } }
+
+      -- experimental signature help support
+      -- trigger = { signature_help = { enabled = true } }
+    },
   },
 }

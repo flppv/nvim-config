@@ -6,28 +6,31 @@ vim.g.mapleader = " "
 
 -- Normal mode mappings (built-in functionality)
 local function set_normal_maps()
-  -- Window navigation
-  map("n", "<c-h>", "<c-w>h", opts_silent)
-  map("n", "<c-j>", "<c-w>j", opts_silent)
-  map("n", "<c-k>", "<c-w>k", opts_silent)
-  map("n", "<c-l>", "<c-w>l", opts_silent)
-
   -- Scrolling
   map("n", "<C-d>", "<C-d>zz", opts_silent)
   map("n", "<C-u>", "<C-u>zz", opts_silent)
 
-  -- File operations
-  map("n", "<c-s>", ":w<cr>", opts_silent)
-end
+  map("n", "<C-h>", "<C-w>h", opts_silent)
+  map("n", "<C-j>", "<C-w>j", opts_silent)
+  map("n", "<C-k>", "<C-w>k", opts_silent)
+  map("n", "<C-l>", "<C-w>l", opts_silent)
 
--- Non-leader key mapping for Oil command
-map("n", "m", ":Oil<CR>", opts_silent)
+  -- Oil
+  map("n", "m", ":Oil<CR>", opts_silent)
+
+  -- File operations
+  map("n", "<C-s>", ":w<cr>", opts_silent)
+  map("n", "<C-q>", ":q<cr>", opts_silent)
+
+  -- Marks
+  map("n", "<leader>m", "m", opts_silent)          -- Set mark
+  map("n", "<leader>a", "'a", opts_silent)         -- Jump to mark 'a'
+  map("n", "<leader>da", "d`a", opts_silent)       -- Delete mark 'a'
+  map("n", "<leader>lm", ":marks<CR>", opts_silent) -- List all marks
+end
 
 -- Leader mappings (mostly plugin-related)
 local function set_leader_maps()
-  -- Trouble
-  map("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "Toggle Trouble" })
-
   -- Lazy
   map("n", "<leader>z", ":Lazy<CR>", { desc = "Open Lazy" })
 
@@ -45,16 +48,17 @@ end
 -- Other plugin-specific mappings (non-leader)
 local function set_other_plugin_maps()
   -- Codeium
-  map("i", "<C-i>", function()
+  map("i", "<C-e>", function()
     return vim.fn["codeium#Accept"]()
   end, opts_expr)
-  map("i", "<c-;>", function()
+
+  map("i", "<C-u>", function()
     return vim.fn["codeium#CycleCompletions"](1)
   end, opts_expr)
-  map("i", "<c-,>", function()
+  map("i", "<C-y>", function()
     return vim.fn["codeium#CycleCompletions"](-1)
   end, opts_expr)
-  map("i", "<c-x>", function()
+  map("i", "<C-z>", function()
     return vim.fn["codeium#Clear"]()
   end, opts_expr)
 end

@@ -38,8 +38,9 @@ keymap("n", "<leader>sc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { desc = "
 keymap("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>", { desc = "Show buffer diagnostics" })
 
 -- Diagnostic jump
-keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Diagnostic jump" })
-keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Diagnostic jump" })
+keymap("n", "<leader>dn", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "Diagnostic jump" })
+keymap("n", "<leader>dp", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "Diagnostic jump" })
+keymap("n", "<leader>dl", "<cmd>Lspsaga diagnostic_setqflist<CR>", { desc = "Diagnostic list" })
 
 -- Diagnostic jump with filters such as only jumping to an error
 keymap("n", "[E", function()
@@ -54,7 +55,7 @@ end, { desc = "Diagnostic jump with filters such as only jumping to an error" })
 keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { desc = "Toggle outline" })
 
 -- Hover Doc
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Doc" })
+keymap("n", "M", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Doc" })
 
 -- Call hierarchy
 keymap("n", "<Leader>ci", "<cmd>Lspsaga incoming_calls<CR>", { desc = "Call hierarchy - Incoming calls" })
