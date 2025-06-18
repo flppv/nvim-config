@@ -39,14 +39,12 @@ vim.opt.signcolumn = "yes"
 g.transparent_enabled = true
 g.completeopt = "menu,menuone,noselect"
 
--- vim.cmd("colorscheme onedark")
-
 require("lazy").setup("plugins", {
 	defaults = {
 		lazy = true,
 	},
 	install = {
-		colorscheme = { "onedark" },
+		colorscheme = { "ayu" },
 		missing = false,
 	},
 	checker = {
