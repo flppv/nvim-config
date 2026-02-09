@@ -15,9 +15,6 @@ local function set_normal_maps()
   map("n", "<C-k>", "<C-w>k", opts_silent)
   map("n", "<C-l>", "<C-w>l", opts_silent)
 
-  -- Oil
-  map("n", "m", ":Oil<CR>", opts_silent)
-
   -- File operations
   map("n", "<C-s>", ":w<cr>", opts_silent)
   map("n", "<C-q>", ":q<cr>", opts_silent)

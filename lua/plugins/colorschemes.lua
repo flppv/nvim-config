@@ -1,32 +1,15 @@
-local M = {
-  -- {
-  --   "Shatur/neovim-ayu",
-  --   priority = 1000,
-  --   lazy = false,
-  --   config = function()
-  --     require("ayu").setup({
-  --       mirage = true,
-  --     })
-  --
-  --     vim.cmd("colorscheme ayu")
-  --     vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
-  --   end,
-  -- },
+return {
   {
     "neanias/everforest-nvim",
     version = false,
     lazy = false,
-    priority = 1000, -- make sure to load this before all the other start plugins
-    -- Optional; default configuration will be used if setup isn't called.
+    priority = 1000,
     config = function()
       require("everforest").setup({
-        -- Your config here
+        background = "medium",
+        transparent_background_level = 1,
       })
-
-      vim.cmd("colorscheme everforest")
-      vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
+      vim.cmd.colorscheme("everforest")
     end,
   },
 }
-
-return M

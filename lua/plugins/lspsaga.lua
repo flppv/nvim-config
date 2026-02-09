@@ -1,16 +1,17 @@
 local M = {
-	"glepnir/lspsaga.nvim",
-	event = "BufRead",
-	config = function()
-		require("lspsaga").setup({
-			lightbulb = {
-				enable = false,
-			},
-			symbol_in_winbar = {
-				enable = false,
-			},
-		})
-	end,
+  "nvimdev/lspsaga.nvim",
+  event = "LspAttach",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-tree/nvim-web-devicons",
+  },
+  opts = {
+    lightbulb = { enable = false },
+    symbol_in_winbar = { enable = false },
+    ui = {
+      border = "rounded",
+    },
+  },
 }
 
 return M

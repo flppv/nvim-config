@@ -1,43 +1,32 @@
 local M = {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	event = "VeryLazy",
-	config = function()
-		-- vim.opt.foldmethod     = 'expr'
-		-- vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
-		---WORKAROUND
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
-			group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
-			callback = function()
-				vim.opt.foldmethod = "manual"
-				-- vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
-			end,
-		})
-		---ENDWORKAROUND
-
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = {
-				"css",
-				"javascript",
-				"html",
-				"typescript",
-				"markdown",
-				"regex",
-				"bash",
-				"markdown_inline",
-			},
-			auto_install = true,
-			highlight = {
-				enable = true,
-			},
-
-			modules = {},
-			-- Install parsers synchronously (only applied to `ensure_installed`)
-			sync_install = false,
-
-			-- List of parsers to ignore installing (or "all")
-			ignore_install = {},
-		})
-	end,
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
+  cmd = { "TSInstall", "TSUpdate", "TSUpdateSync" },
+  opts = {
+    ensure_installed = {
+      "css",
+      "javascript",
+      "html",
+      "typescript",
+      "tsx",
+      "markdown",
+      "markdown_inline",
+      "regex",
+      "bash",
+      "lua",
+      "json",
+      "yaml",
+    },
+    auto_install = true,
+    highlight = { enable = true },
+    indent = { enable = true },
+    sync_install = false,
+    ignore_install = {},
+  },
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end,
 }
+
 return M
